@@ -9,7 +9,7 @@ colnames(NEImelt)
 
 meanEmissions = dcast (data=NEImelt, formula=year ~ variable, mean)
 meanEmissions
-
+#the following is by using the base plots.
 png(filename="plot1.png")
 with (meanEmissions, plot (x=year, y=Emissions, type="p",
                            main = "Avg.Emission of PM2.5 over years", 
@@ -17,6 +17,7 @@ with (meanEmissions, plot (x=year, y=Emissions, type="p",
                            ylab = "Avg PM2.5"
 ))
 dev.off()
+#The following gets the plots in GGplot
 png (filename = "plot1_gg.png")
 library(ggplot2)
 ggplot( data=meanEmissions, aes(x=year, y = Emissions, group = year)) +
